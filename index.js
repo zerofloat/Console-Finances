@@ -99,7 +99,6 @@ for (let i = 0; i < finances.length; i++) { //iterate through array
   totalMonths = i + 1;                      //store array length as integer + 1
 
   const arr = finances[i];                  //store index position of finances array in variable arr
-  console.log(arr);
   sumPL += arr[1];                          //total P/L = sum of values at arr index position 1
 
   monthlyPL.push(arr[1]);                   //create new array from arr[1]
@@ -114,8 +113,6 @@ function monthlyDiff(monthlyPL) {           //function returns difference in mon
 }
 
 diff = (monthlyDiff(monthlyPL)); //store output of function as new array
-console.log('Month to month P/L change:');
-console.log(diff);
 
 for (let i = 0; i < diff.length; i++) { //sum new array
   diffSum += diff[i];
@@ -123,12 +120,10 @@ for (let i = 0; i < diff.length; i++) { //sum new array
 }
 meanChange = diffSum / (totalMonths - 1); //average month to month P/L change
 meanChange = meanChange.toFixed(2);
-console.log('Average Change: $' + meanChange);
 
 // finances array ascending - biggest loss
 finances.sort(function(a, b){return a[1] - b[1]});
 biggestLoss = finances[0][0] + " ($"+finances[0][1]+")";
-console.log(finances[0]);
 
 // finances array descending - biggest profit
 finances.sort(function(a, b){return b[1] - a[1]});
