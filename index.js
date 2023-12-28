@@ -86,7 +86,7 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-//define necessary variables
+
 var totalMonths = 0;
 var sumPL = 0;
 var monthlyPL = [];
@@ -127,26 +127,16 @@ console.log('Average Change: $' + meanChange);
 
 // finances array ascending - biggest loss
 finances.sort(function(a, b){return a[1] - b[1]});
-biggestLoss = finances[0];
+biggestLoss = finances[0][0] + " ($"+finances[0][1]+")";
 console.log(finances[0]);
 
 // finances array descending - biggest profit
 finances.sort(function(a, b){return b[1] - a[1]});
-biggestProfit = finances[0];
-console.log(finances[0]);
+biggestProfit = finances[0][0] + " ($"+finances[0][1]+")";
 
 
+// print concatenated string answer to console
 console.log("Financial Analysis \n\-------------\n\Total Months: " + totalMonths + "\n\Total: $" + sumPL + "\n\Average Change: $" + meanChange + "\n\Greatest Increase in Profits/Losses: " + biggestProfit + "\n\Greatest Decrease in Profits/Losses: " + biggestLoss + "\n\-------------");
-
-
-
-// console.log(totalMonths);
-// console.log(sumPL);
-// console.log(monthlyPL);
-
-
-
-// meanChange = 'TBC' / (totalMonths - 1);
 
 
 
