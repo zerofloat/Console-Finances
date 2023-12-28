@@ -127,14 +127,16 @@ console.log('Average Change: $' + meanChange);
 
 // finances array ascending - biggest loss
 finances.sort(function(a, b){return a[1] - b[1]});
+biggestLoss = finances[0];
 console.log(finances[0]);
 
 // finances array descending - biggest profit
 finances.sort(function(a, b){return b[1] - a[1]});
+biggestProfit = finances[0];
 console.log(finances[0]);
 
 
-console.log("Financial Analysis \n\-------------\n\Total Months: " + totalMonths + "\n\Total: $" + sumPL);
+console.log("Financial Analysis \n\-------------\n\Total Months: " + totalMonths + "\n\Total: $" + sumPL + "\n\Average Change: $" + meanChange + "\n\Greatest Increase in Profits/Losses: " + biggestProfit + "\n\Greatest Decrease in Profits/Losses: " + biggestLoss + "\n\-------------");
 
 
 
