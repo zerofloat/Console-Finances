@@ -86,26 +86,61 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-
+//define necessary variables
 var totalMonths = 0;
 var sumPL = 0;
-var monthChange = [];
-var meanChange = 0;
+var monthlyPL = [];
+var diff = [];
+var meanChange = [];
+var diffSum = 0;
 
-for (let i = 0; i < finances.length; i++) {
+for (let i = 0; i < finances.length; i++) { //iterate through array
 
-  totalMonths = i + 1;
+  totalMonths = i + 1;                      //store array length as integer + 1
 
-  const arr = finances[i];
-  sumPL += arr[1];
-  monthChange.push(arr[1]);  
+  const arr = finances[i];                  //store index position of finances array in variable arr
+  console.log(arr);
+  sumPL += arr[1];                          //total P/L = sum of values at arr index position 1
 
+  monthlyPL.push(arr[1]);                   //create new array from arr[1]
 
 }
 
-console.log(totalMonths);
-console.log(sumPL);
-console.log(monthChange);
+function monthlyDiff(monthlyPL) {           //function returns difference in monthlyPL between elements
+  var monthlyChange = [];                   //define new array for iterations to be pushed into in function
+  for (let i = 1; i < monthlyPL.length; i++){  //iterate through monthlyPL array
+    monthlyChange.push(monthlyPL[i] - monthlyPL[i - 1])}; //push difference between elements into array
+    return monthlyChange;
+}
+
+diff = (monthlyDiff(monthlyPL)); //store output of function as new array
+console.log('Month to month P/L change:');
+console.log(diff);
+
+for (let i = 0; i < diff.length; i++) { //sum new array
+  diffSum += diff[i];
+  
+}
+meanChange = diffSum / (totalMonths - 1); //average month to month P/L change
+meanChange = meanChange.toFixed(2);
+console.log('Average Change: $' + meanChange);
+
+// finances array ascending - biggest loss
+finances.sort(function(a, b){return a[1] - b[1]});
+console.log(finances[0]);
+
+// finances array descending - biggest profit
+finances.sort(function(a, b){return b[1] - a[1]});
+console.log(finances[0]);
+
+
+console.log("Financial Analysis \n\-------------\n\Total Months: " + totalMonths + "\n\Total: $" + sumPL);
+
+
+
+// console.log(totalMonths);
+// console.log(sumPL);
+// console.log(monthlyPL);
 
 
 
