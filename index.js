@@ -87,3 +87,30 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+var totalMonths = 0;
+var sumPL = 0;
+var monthChange = [];
+var meanChange = 0;
+
+for (let i = 0; i < finances.length; i++) {
+
+  totalMonths = i + 1;
+
+  const arr = finances[i];
+  sumPL += arr[1];
+  monthChange.push(arr[1]);  
+
+
+}
+
+console.log(totalMonths);
+console.log(sumPL);
+console.log(monthChange);
+
+
+
+// meanChange = 'TBC' / (totalMonths - 1);
+
+
+
+
